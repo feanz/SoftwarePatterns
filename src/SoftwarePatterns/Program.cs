@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SoftwarePatterns.Core;
 using SoftwarePatterns.Core.Adapter;
 using SoftwarePatterns.Core.Bridge;
 using SoftwarePatterns.Core.Builder;
 using SoftwarePatterns.Core.ChainOfResponsability;
+using SoftwarePatterns.Core.Command;
 using SoftwarePatterns.Core.EnumerationClass;
 
 namespace SoftwarePatterns
@@ -92,6 +94,31 @@ namespace SoftwarePatterns
 		//}
 
 		#endregion 
+
+		#region Command
+
+		public static void Main(string[] args)
+		{
+			var factory = new CommandFactory();
+
+			var commands = factory.AvailableCommand;
+
+			Console.WriteLine("Commands:");
+			commands.ForEach(type => Console.WriteLine(type.Name));
+			Console.WriteLine();
+
+			Console.WriteLine("What command do you want to run?");
+
+			var arguments = Console.ReadLine();
+
+			var command = factory.MakeCommand(arguments);
+
+			command.Execute();
+
+			Console.ReadLine();
+		}
+
+		#endregion
 
 		#region Chain of responsability
 

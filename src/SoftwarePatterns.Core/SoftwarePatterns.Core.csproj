@@ -68,6 +68,11 @@
     <Compile Include="ChainOfResponsability\IExpenseApprover.cs" />
     <Compile Include="ChainOfResponsability\IExpenseHandler.cs" />
     <Compile Include="ChainOfResponsability\IExpenseReport.cs" />
+    <Compile Include="Command\CommandFactory.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\ICommandFactory.cs" />
+    <Compile Include="Command\ShipOrderCommad.cs" />
+    <Compile Include="Command\UpdateQuantityCommand.cs" />
     <Compile Include="EnumerationClass\EmployeeType.cs" />
     <Compile Include="EnumerationClass\Enumeration.cs" />
     <Compile Include="Extensions.cs" />
@@ -78,8 +83,10 @@
     <Content Include="Bridge\ReadMe.txt" />
     <Content Include="Builder\ReadMe.txt" />
     <Content Include="ChainOfResponsability\ReadMe.txt" />
+    <Content Include="Command\ReadMe.txt" />
     <Content Include="EnumerationClass\ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
