@@ -59,6 +59,8 @@
     <Compile Include="Builder\Employee.cs" />
     <Compile Include="Builder\EmployeeDirector.cs" />
     <Compile Include="Builder\ServiceDeskEmployeeBuilder.cs" />
+    <Compile Include="EnumerationClass\EmployeeType.cs" />
+    <Compile Include="EnumerationClass\Enumeration.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +68,7 @@
     <Content Include="Adapter\ReadMe.txt" />
     <Content Include="Bridge\ReadMe.txt" />
     <Content Include="Builder\ReadMe.txt" />
+    <Content Include="EnumerationClass\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

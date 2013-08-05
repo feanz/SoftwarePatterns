@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SoftwarePatterns.Core.EnumerationClass;
 
 namespace SoftwarePatterns.Core.Builder
 {
@@ -17,6 +18,8 @@ namespace SoftwarePatterns.Core.Builder
 		public Band Band { get; set; }
 		public bool IsFullTime { get; set; }
 		public List<string> Certifications { get; set; }
+		public EmployeeType Type { get; set; }
+		public decimal  Bonus { get; set; }
 
 		public void Display()
 		{
