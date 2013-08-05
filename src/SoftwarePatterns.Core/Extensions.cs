@@ -8,6 +8,14 @@ namespace SoftwarePatterns.Core
 {
 	public static class Extensions
 	{
+		public static void ForEach<T>(this IEnumerable<T> collection, Action<T> action)
+		{
+			foreach (var c in collection)
+			{
+				action(c);
+			}
+		}
+
 		public static void ForEach<T>(this IEnumerable<T> collection, Action<T, int> action)
 		{
 			var i = 0;

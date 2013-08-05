@@ -44,11 +44,20 @@
     <Compile Include="Adapter\Library\DataRenderer.cs" />
     <Compile Include="Adapter\Pattern.cs" />
     <Compile Include="Adapter\PatternRenderer.cs" />
+    <Compile Include="Bridge\BackwardsFormatter.cs" />
+    <Compile Include="Bridge\Book.cs" />
+    <Compile Include="Bridge\FancyFormatter.cs" />
+    <Compile Include="Bridge\FAQ.cs" />
+    <Compile Include="Bridge\IFormatter.cs" />
+    <Compile Include="Bridge\Manuscript.cs" />
+    <Compile Include="Bridge\Paper.cs" />
+    <Compile Include="Bridge\StandardFormatter.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adapter\ReadMe.txt" />
+    <Content Include="Bridge\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
