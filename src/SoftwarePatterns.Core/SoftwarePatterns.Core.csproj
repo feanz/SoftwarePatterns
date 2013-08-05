@@ -52,12 +52,20 @@
     <Compile Include="Bridge\Manuscript.cs" />
     <Compile Include="Bridge\Paper.cs" />
     <Compile Include="Bridge\StandardFormatter.cs" />
+    <Compile Include="Builder\Band.cs" />
+    <Compile Include="Builder\Department.cs" />
+    <Compile Include="Builder\EmployeeBuilder.cs" />
+    <Compile Include="Builder\EmployeeConstructorTooBig.cs" />
+    <Compile Include="Builder\Employee.cs" />
+    <Compile Include="Builder\EmployeeDirector.cs" />
+    <Compile Include="Builder\ServiceDeskEmployeeBuilder.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adapter\ReadMe.txt" />
     <Content Include="Bridge\ReadMe.txt" />
+    <Content Include="Builder\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

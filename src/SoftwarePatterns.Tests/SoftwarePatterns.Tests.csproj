@@ -66,6 +66,7 @@
     <Compile Include="Adapter\StubDataAdapter.cs" />
     <Compile Include="Bridge\BackwardsFormatterTests.cs" />
     <Compile Include="Bridge\StandardFormatterTests.cs" />
+    <Compile Include="Builder\EmpolyeeBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
