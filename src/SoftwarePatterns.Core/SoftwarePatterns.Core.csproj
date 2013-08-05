@@ -59,6 +59,15 @@
     <Compile Include="Builder\Employee.cs" />
     <Compile Include="Builder\EmployeeDirector.cs" />
     <Compile Include="Builder\ServiceDeskEmployeeBuilder.cs" />
+    <Compile Include="ChainOfResponsability\ApprovalResponse.cs" />
+    <Compile Include="ChainOfResponsability\ApprovalState.cs" />
+    <Compile Include="ChainOfResponsability\EndOfChainHandler.cs" />
+    <Compile Include="ChainOfResponsability\ExpenseApprover.cs" />
+    <Compile Include="ChainOfResponsability\ExpenseHandler.cs" />
+    <Compile Include="ChainOfResponsability\ExpenseHandlerChain.cs" />
+    <Compile Include="ChainOfResponsability\IExpenseApprover.cs" />
+    <Compile Include="ChainOfResponsability\IExpenseHandler.cs" />
+    <Compile Include="ChainOfResponsability\IExpenseReport.cs" />
     <Compile Include="EnumerationClass\EmployeeType.cs" />
     <Compile Include="EnumerationClass\Enumeration.cs" />
     <Compile Include="Extensions.cs" />
@@ -68,6 +77,7 @@
     <Content Include="Adapter\ReadMe.txt" />
     <Content Include="Bridge\ReadMe.txt" />
     <Content Include="Builder\ReadMe.txt" />
+    <Content Include="ChainOfResponsability\ReadMe.txt" />
     <Content Include="EnumerationClass\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SoftwarePatterns.Core.Builder;
+using SoftwarePatterns.Core.ChainOfResponsability;
 using SoftwarePatterns.Core.EnumerationClass;
 
 namespace SoftwarePatterns
@@ -80,6 +81,36 @@ namespace SoftwarePatterns
 		//{
 		//	employee.Bonus = employee.Type.BonusSize;
 		//}
+		#endregion
+
+		#region Chain of responsability
+
+		//public static void Main()
+		//{
+		//	var edd = new ExpenseHandler(new ExpenseApprover("Edd", 0));
+		//	var jill = new ExpenseHandler(new ExpenseApprover("Jill", 100));
+		//	var barry = new ExpenseHandler(new ExpenseApprover("Barry", 1000));
+		//	var donald = new ExpenseHandler(new ExpenseApprover("Donald", 10000));
+
+		//	edd.RegisterNext(jill);
+		//	jill.RegisterNext(barry);
+		//	barry.RegisterNext(donald);
+
+		//	var input = Console.ReadLine();
+
+		//	Decimal expenseReportAmount;
+		//	if (decimal.TryParse(input, out expenseReportAmount))
+		//	{
+		//		var expenseReport = new ExpenseReport(expenseReportAmount);
+
+		//		var response = edd.Approve(expenseReport);
+
+		//		Console.WriteLine("This request was {0}.", response);
+		//	}
+
+		//	Console.ReadLine();
+		//}
+
 		#endregion
 	}
 }
