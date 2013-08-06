@@ -69,6 +69,7 @@
     <Compile Include="Builder\EmpolyeeBuilderTests.cs" />
     <Compile Include="ChainOfResponsability\ExpenseHandlerChainTests.cs" />
     <Compile Include="Command\CommandFactoryTests.cs" />
+    <Compile Include="Composite\GroupTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

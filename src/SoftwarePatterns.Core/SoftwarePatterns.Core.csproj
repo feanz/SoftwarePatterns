@@ -73,6 +73,9 @@
     <Compile Include="Command\ICommandFactory.cs" />
     <Compile Include="Command\ShipOrderCommad.cs" />
     <Compile Include="Command\UpdateQuantityCommand.cs" />
+    <Compile Include="Composite\Group.cs" />
+    <Compile Include="Composite\IParty.cs" />
+    <Compile Include="Composite\Player.cs" />
     <Compile Include="EnumerationClass\EmployeeType.cs" />
     <Compile Include="EnumerationClass\Enumeration.cs" />
     <Compile Include="Extensions.cs" />
@@ -84,6 +87,7 @@
     <Content Include="Builder\ReadMe.txt" />
     <Content Include="ChainOfResponsability\ReadMe.txt" />
     <Content Include="Command\ReadMe.txt" />
+    <Content Include="Composite\ReadMe.txt" />
     <Content Include="EnumerationClass\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />

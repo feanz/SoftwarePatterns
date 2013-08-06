@@ -7,6 +7,7 @@ using SoftwarePatterns.Core.Bridge;
 using SoftwarePatterns.Core.Builder;
 using SoftwarePatterns.Core.ChainOfResponsability;
 using SoftwarePatterns.Core.Command;
+using SoftwarePatterns.Core.Composite;
 using SoftwarePatterns.Core.EnumerationClass;
 
 namespace SoftwarePatterns
@@ -66,7 +67,7 @@ namespace SoftwarePatterns
 
 		//	//This employee object constructor is too large
 		//	//var employee = new EmployeeConstructorTooBig("Name","email","079871656564",Department.HR,Band.Executive,true,new List<string> {"Cert 1", "Cert 2" });
-			
+
 		//	//This method of making object gives us no control over construction process
 		//	//var employee = new EmployeePublicProperties
 		//	//{
@@ -93,29 +94,58 @@ namespace SoftwarePatterns
 		//	Console.ReadLine();
 		//}
 
-		#endregion 
+		#endregion
 
 		#region Command
 
-		public static void Main(string[] args)
+		//public static void Main(string[] args)
+		//{
+		//	var factory = new CommandFactory();
+
+		//	var commands = factory.AvailableCommand;
+
+		//	Console.WriteLine("Commands:");
+		//	commands.ForEach(type => Console.WriteLine(type.Name));
+		//	Console.WriteLine();
+
+		//	Console.WriteLine("What command do you want to run?");
+
+		//	var arguments = Console.ReadLine();
+
+		//	var command = factory.MakeCommand(arguments);
+
+		//	command.Execute();
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region Composite
+
+		public static void Main()
 		{
-			var factory = new CommandFactory();
+			const int goldWon = 1023;
 
-			var commands = factory.AvailableCommand;
+			Console.WriteLine("This is a small game sim");
+			Console.WriteLine("You have killed a monster and gained {0} gold", goldWon);
 
-			Console.WriteLine("Commands:");
-			commands.ForEach(type => Console.WriteLine(type.Name));
-			Console.WriteLine();
+			var joe = new Player { Name = "Joe" };
+			var jake = new Player { Name = "Jake" };
+			var emily = new Player { Name = "Emily" };
+			var sophie = new Player { Name = "Sophie" };
+			var brian = new Player { Name = "Brian" };
+			var bob = new Player { Name = "Bob" };
+			var bill = new Player { Name = "Bill" };
+			var warriors = new Group { Name = "Warriors", Members = { bob, bill } };
+			var questers = new Group { Name = "Questers", Members = { joe, jake, emily, warriors } };
 
-			Console.WriteLine("What command do you want to run?");
-
-			var arguments = Console.ReadLine();
-
-			var command = factory.MakeCommand(arguments);
-
-			command.Execute();
-
-			Console.ReadLine();
+			var parties = new Group { Members = { questers, sophie, brian } };
+				
+			parties.Gold += goldWon;
+			parties.Stats();
+		
+			Console.ReadKey();
 		}
 
 		#endregion
