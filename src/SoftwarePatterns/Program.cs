@@ -8,6 +8,7 @@ using SoftwarePatterns.Core.Builder;
 using SoftwarePatterns.Core.ChainOfResponsability;
 using SoftwarePatterns.Core.Command;
 using SoftwarePatterns.Core.Composite;
+using SoftwarePatterns.Core.Decorator;
 using SoftwarePatterns.Core.EnumerationClass;
 
 namespace SoftwarePatterns
@@ -123,29 +124,46 @@ namespace SoftwarePatterns
 
 		#region Composite
 
+		//public static void Main()
+		//{
+		//	const int goldWon = 1023;
+
+		//	Console.WriteLine("This is a small game sim");
+		//	Console.WriteLine("You have killed a monster and gained {0} gold", goldWon);
+
+		//	var joe = new Player { Name = "Joe" };
+		//	var jake = new Player { Name = "Jake" };
+		//	var emily = new Player { Name = "Emily" };
+		//	var sophie = new Player { Name = "Sophie" };
+		//	var brian = new Player { Name = "Brian" };
+		//	var bob = new Player { Name = "Bob" };
+		//	var bill = new Player { Name = "Bill" };
+		//	var warriors = new Group { Name = "Warriors", Members = { bob, bill } };
+		//	var questers = new Group { Name = "Questers", Members = { joe, jake, emily, warriors } };
+
+		//	var parties = new Group { Members = { questers, sophie, brian } };
+
+		//	parties.Gold += goldWon;
+		//	parties.Stats();
+
+		//	Console.ReadKey();
+		//}
+
+		#endregion
+
+		#region Decorator
+
 		public static void Main()
 		{
-			const int goldWon = 1023;
+			Pizza largePizza = new LargePizza();
+			largePizza = new Cheese(largePizza);
+			largePizza = new Ham(largePizza);
+			largePizza = new Peppers(largePizza);
 
-			Console.WriteLine("This is a small game sim");
-			Console.WriteLine("You have killed a monster and gained {0} gold", goldWon);
+			Console.WriteLine(largePizza.GetDescription());
+			Console.WriteLine("{0:C2}", largePizza.CalculateCost());
 
-			var joe = new Player { Name = "Joe" };
-			var jake = new Player { Name = "Jake" };
-			var emily = new Player { Name = "Emily" };
-			var sophie = new Player { Name = "Sophie" };
-			var brian = new Player { Name = "Brian" };
-			var bob = new Player { Name = "Bob" };
-			var bill = new Player { Name = "Bill" };
-			var warriors = new Group { Name = "Warriors", Members = { bob, bill } };
-			var questers = new Group { Name = "Questers", Members = { joe, jake, emily, warriors } };
-
-			var parties = new Group { Members = { questers, sophie, brian } };
-				
-			parties.Gold += goldWon;
-			parties.Stats();
-		
-			Console.ReadKey();
+			Console.ReadLine();
 		}
 
 		#endregion

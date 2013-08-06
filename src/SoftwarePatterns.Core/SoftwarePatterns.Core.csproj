@@ -76,6 +76,11 @@
     <Compile Include="Composite\Group.cs" />
     <Compile Include="Composite\IParty.cs" />
     <Compile Include="Composite\Player.cs" />
+    <Compile Include="Decorator\LargePizza.cs" />
+    <Compile Include="Decorator\MediumPizza.cs" />
+    <Compile Include="Decorator\Pizza.cs" />
+    <Compile Include="Decorator\PizzaDecorator.cs" />
+    <Compile Include="Decorator\SmallPizza.cs" />
     <Compile Include="EnumerationClass\EmployeeType.cs" />
     <Compile Include="EnumerationClass\Enumeration.cs" />
     <Compile Include="Extensions.cs" />
@@ -88,6 +93,7 @@
     <Content Include="ChainOfResponsability\ReadMe.txt" />
     <Content Include="Command\ReadMe.txt" />
     <Content Include="Composite\ReadMe.txt" />
+    <Content Include="Decorator\ReadMe.txt" />
     <Content Include="EnumerationClass\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
