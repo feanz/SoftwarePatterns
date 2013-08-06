@@ -14,6 +14,7 @@ using SoftwarePatterns.Core.Decorator;
 using SoftwarePatterns.Core.EnumerationClass;
 using SoftwarePatterns.Core.EventAggregator;
 using SoftwarePatterns.Core.Facade;
+using SoftwarePatterns.Core.Factory;
 
 namespace SoftwarePatterns
 {
@@ -200,12 +201,32 @@ namespace SoftwarePatterns
 
 		#region Facade
 
+		//public static void Main()
+		//{
+		//	var facade = new TemperatureLookupFacade();
+		//	var localTemperature = facade.GetTemperature("NE4 5PE");
+
+		//	Console.WriteLine("City: {0}\n" + "Province: {1}\n" + "Celsius:{2}\n" + "Fahrenheit:{3}\n", localTemperature.City, localTemperature.Province, localTemperature.Celsius, localTemperature.Fahrenheit);
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region Factory
+
 		public static void Main()
 		{
-			var facade = new TemperatureLookupFacade();
-			var localTemperature = facade.GetTemperature("NE4 5PE");
+			Console.WriteLine("Select a car");
 
-			Console.WriteLine("City: {0}\n" + "Province: {1}\n" + "Celsius:{2}\n" + "Fahrenheit:{3}\n", localTemperature.City, localTemperature.Province, localTemperature.Celsius, localTemperature.Fahrenheit);
+			var carName = Console.ReadLine();
+
+			var factory = new AutoFactory();
+
+			var car = factory.Create(carName);
+
+			car.TurnOn();
+			car.TurnOff();
+
 			Console.ReadLine();
 		}
 
@@ -242,6 +263,7 @@ namespace SoftwarePatterns
 		#endregion
 
 		#region Enumeration Class
+
 		//static void Main()
 		//{
 		//	//to stop this sort of code
@@ -275,6 +297,7 @@ namespace SoftwarePatterns
 		//{
 		//	employee.Bonus = employee.Type.BonusSize;
 		//}
+
 		#endregion
 	}
 }

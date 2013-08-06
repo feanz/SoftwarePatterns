@@ -97,6 +97,11 @@
     <Compile Include="Facade\LocalTemperature.cs" />
     <Compile Include="Facade\TemperatureLookupFacade.cs" />
     <Compile Include="Facade\WeatherService.cs" />
+    <Compile Include="Factory\AutoFactory.cs" />
+    <Compile Include="Factory\Bmw.cs" />
+    <Compile Include="Factory\IAuto.cs" />
+    <Compile Include="Factory\MiniCooper.cs" />
+    <Compile Include="Factory\NullAuto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +115,7 @@
     <Content Include="EnumerationClass\ReadMe.txt" />
     <Content Include="EventAggregator\ReadMe.txt" />
     <Content Include="Facade\ReadMe.txt" />
+    <Content Include="Factory\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
