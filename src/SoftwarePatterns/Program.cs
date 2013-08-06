@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using Ploeh.AutoFixture;
 using SoftwarePatterns.Core;
 using SoftwarePatterns.Core.Adapter;
 using SoftwarePatterns.Core.Bridge;
@@ -10,6 +12,7 @@ using SoftwarePatterns.Core.Command;
 using SoftwarePatterns.Core.Composite;
 using SoftwarePatterns.Core.Decorator;
 using SoftwarePatterns.Core.EnumerationClass;
+using SoftwarePatterns.Core.EventAggregator;
 
 namespace SoftwarePatterns
 {
@@ -153,15 +156,41 @@ namespace SoftwarePatterns
 
 		#region Decorator
 
+		//public static void Main()
+		//{
+		//	Pizza largePizza = new LargePizza();
+		//	largePizza = new Cheese(largePizza);
+		//	largePizza = new Ham(largePizza);
+		//	largePizza = new Peppers(largePizza);
+
+		//	Console.WriteLine(largePizza.GetDescription());
+		//	Console.WriteLine("{0:C2}", largePizza.CalculateCost());
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region EventAggregator
+
 		public static void Main()
 		{
-			Pizza largePizza = new LargePizza();
-			largePizza = new Cheese(largePizza);
-			largePizza = new Ham(largePizza);
-			largePizza = new Peppers(largePizza);
+			var fixture = new Fixture();
+			var orders = fixture.CreateMany<Order>().ToList();
 
-			Console.WriteLine(largePizza.GetDescription());
-			Console.WriteLine("{0:C2}", largePizza.CalculateCost());
+			//create client
+			var ea = new SimpleEventAggregator();
+			var client = new OrderClient(ea, orders);
+
+			//create subscribers 
+			var logger = new OrderLogger(ea);
+			var view = new OrderViewModel(ea);
+
+			var id = orders.First().Id;
+			client.SelectOrder(id);
+			client.SaveOrder(id);
+
+			client.CreateOrder(1000, "Test order", "Test customer");
 
 			Console.ReadLine();
 		}
