@@ -91,6 +91,12 @@
     <Compile Include="EventAggregator\OrderViewModel.cs" />
     <Compile Include="EventAggregator\SimpleEventAggregator.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Facade\Coordinates.cs" />
+    <Compile Include="Facade\GeoLookupService.cs" />
+    <Compile Include="Facade\ImperialMetricConverter.cs" />
+    <Compile Include="Facade\LocalTemperature.cs" />
+    <Compile Include="Facade\TemperatureLookupFacade.cs" />
+    <Compile Include="Facade\WeatherService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +109,7 @@
     <Content Include="Decorator\ReadMe.txt" />
     <Content Include="EnumerationClass\ReadMe.txt" />
     <Content Include="EventAggregator\ReadMe.txt" />
+    <Content Include="Facade\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

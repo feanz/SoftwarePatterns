@@ -13,6 +13,7 @@ using SoftwarePatterns.Core.Composite;
 using SoftwarePatterns.Core.Decorator;
 using SoftwarePatterns.Core.EnumerationClass;
 using SoftwarePatterns.Core.EventAggregator;
+using SoftwarePatterns.Core.Facade;
 
 namespace SoftwarePatterns
 {
@@ -173,25 +174,38 @@ namespace SoftwarePatterns
 
 		#region EventAggregator
 
+		//public static void Main()
+		//{
+		//	var fixture = new Fixture();
+		//	var orders = fixture.CreateMany<Order>().ToList();
+
+		//	//create client
+		//	var ea = new SimpleEventAggregator();
+		//	var client = new OrderClient(ea, orders);
+
+		//	//create subscribers 
+		//	var logger = new OrderLogger(ea);
+		//	var view = new OrderViewModel(ea);
+
+		//	var id = orders.First().Id;
+		//	client.SelectOrder(id);
+		//	client.SaveOrder(id);
+
+		//	client.CreateOrder(1000, "Test order", "Test customer");
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region Facade
+
 		public static void Main()
 		{
-			var fixture = new Fixture();
-			var orders = fixture.CreateMany<Order>().ToList();
+			var facade = new TemperatureLookupFacade();
+			var localTemperature = facade.GetTemperature("NE4 5PE");
 
-			//create client
-			var ea = new SimpleEventAggregator();
-			var client = new OrderClient(ea, orders);
-
-			//create subscribers 
-			var logger = new OrderLogger(ea);
-			var view = new OrderViewModel(ea);
-
-			var id = orders.First().Id;
-			client.SelectOrder(id);
-			client.SaveOrder(id);
-
-			client.CreateOrder(1000, "Test order", "Test customer");
-
+			Console.WriteLine("City: {0}\n" + "Province: {1}\n" + "Celsius:{2}\n" + "Fahrenheit:{3}\n", localTemperature.City, localTemperature.Province, localTemperature.Celsius, localTemperature.Fahrenheit);
 			Console.ReadLine();
 		}
 

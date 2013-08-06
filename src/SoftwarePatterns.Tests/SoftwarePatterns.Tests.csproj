@@ -75,6 +75,7 @@
     <Compile Include="Composite\GroupTests.cs" />
     <Compile Include="Decorator\PizzaTests.cs" />
     <Compile Include="EventAggregator\OrderLoggerTests.cs" />
+    <Compile Include="Facade\ImperialMetricConverterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
