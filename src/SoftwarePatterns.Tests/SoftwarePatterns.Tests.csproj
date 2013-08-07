@@ -77,6 +77,7 @@
     <Compile Include="EventAggregator\OrderLoggerTests.cs" />
     <Compile Include="Facade\ImperialMetricConverterTests.cs" />
     <Compile Include="Factory\AutoFactoyTests.cs" />
+    <Compile Include="Flyweight\TileFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

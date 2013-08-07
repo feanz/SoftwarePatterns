@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -100,8 +101,16 @@
     <Compile Include="Factory\AutoFactory.cs" />
     <Compile Include="Factory\Bmw.cs" />
     <Compile Include="Factory\IAuto.cs" />
+    <Compile Include="Factory\IAutoFactory.cs" />
     <Compile Include="Factory\MiniCooper.cs" />
     <Compile Include="Factory\NullAuto.cs" />
+    <Compile Include="Flyweight\CeramicFlyweightTile.cs" />
+    <Compile Include="Flyweight\CeramicTile.cs" />
+    <Compile Include="Flyweight\IFlyweightTile.cs" />
+    <Compile Include="Flyweight\ITile.cs" />
+    <Compile Include="Flyweight\StoneFlyweightTile.cs" />
+    <Compile Include="Flyweight\StoneTile.cs" />
+    <Compile Include="Flyweight\TileFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +125,7 @@
     <Content Include="EventAggregator\ReadMe.txt" />
     <Content Include="Facade\ReadMe.txt" />
     <Content Include="Factory\ReadMe.txt" />
+    <Content Include="Flyweight\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
