@@ -15,6 +15,7 @@ using SoftwarePatterns.Core.EnumerationClass;
 using SoftwarePatterns.Core.EventAggregator;
 using SoftwarePatterns.Core.Facade;
 using SoftwarePatterns.Core.Factory;
+using SoftwarePatterns.Core.Interpreter;
 
 namespace SoftwarePatterns
 {
@@ -214,19 +215,44 @@ namespace SoftwarePatterns
 
 		#region Factory
 
+		//public static void Main()
+		//{
+		//	Console.WriteLine("Select a car");
+
+		//	var carName = Console.ReadLine();
+
+		//	var factory = new AutoFactory();
+
+		//	var car = factory.Create(carName);
+
+		//	car.TurnOn();
+		//	car.TurnOff();
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region Interpretor
+
 		public static void Main()
 		{
-			Console.WriteLine("Select a car");
+			var patient = new Patient(new PersonalDetial {Name = "Steve", DateOFfBirth = DateTime.Now.AddYears(-55), PostCode = "NE4 2KI"},
+				new IntensiveCarePatient(),
+				new MedicalHistory(new List<IMedicalEvent>
+				{
+					new HeartAttack(),
+					new Stroke()
+				}),
+				new Diagnosis {Descrtion = "Too many tabs"},
+				new Medication(new List<Medicine>
+				{
+					new Medicine("Aspirin"),
+					new Medicine("Warm Tea")
+				}));
 
-			var carName = Console.ReadLine();
-
-			var factory = new AutoFactory();
-
-			var car = factory.Create(carName);
-
-			car.TurnOn();
-			car.TurnOff();
-
+			patient.Interpret(new Context());
+			
 			Console.ReadLine();
 		}
 

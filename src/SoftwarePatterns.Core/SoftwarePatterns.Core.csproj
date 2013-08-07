@@ -111,6 +111,21 @@
     <Compile Include="Flyweight\StoneFlyweightTile.cs" />
     <Compile Include="Flyweight\StoneTile.cs" />
     <Compile Include="Flyweight\TileFactory.cs" />
+    <Compile Include="Interpreter\Context.cs" />
+    <Compile Include="Interpreter\Diagnosis.cs" />
+    <Compile Include="Interpreter\Expression.cs" />
+    <Compile Include="Interpreter\HeartAttack.cs" />
+    <Compile Include="Interpreter\IMedicalEvent.cs" />
+    <Compile Include="Interpreter\IntensiveCarePatient.cs" />
+    <Compile Include="Interpreter\IPatientType.cs" />
+    <Compile Include="Interpreter\ManFlu.cs" />
+    <Compile Include="Interpreter\MedicalHistory.cs" />
+    <Compile Include="Interpreter\Medication.cs" />
+    <Compile Include="Interpreter\Medicine.cs" />
+    <Compile Include="Interpreter\OutPateint.cs" />
+    <Compile Include="Interpreter\Patient.cs" />
+    <Compile Include="Interpreter\PersonalDetial.cs" />
+    <Compile Include="Interpreter\Stroke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +141,7 @@
     <Content Include="Facade\ReadMe.txt" />
     <Content Include="Factory\ReadMe.txt" />
     <Content Include="Flyweight\ReadMe.txt" />
+    <Content Include="Interpreter\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
