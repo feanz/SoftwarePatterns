@@ -126,6 +126,9 @@
     <Compile Include="Interpreter\Patient.cs" />
     <Compile Include="Interpreter\PersonalDetial.cs" />
     <Compile Include="Interpreter\Stroke.cs" />
+    <Compile Include="Iterator\BinarySearchTree.cs" />
+    <Compile Include="Iterator\BinaryTreeEnumerator.cs" />
+    <Compile Include="Iterator\BinaryTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +145,7 @@
     <Content Include="Factory\ReadMe.txt" />
     <Content Include="Flyweight\ReadMe.txt" />
     <Content Include="Interpreter\ReadMe.txt" />
+    <Content Include="Iterator\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
