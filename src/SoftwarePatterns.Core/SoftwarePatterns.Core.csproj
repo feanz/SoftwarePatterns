@@ -132,6 +132,11 @@
     <Compile Include="LazyLoad\Customer.cs" />
     <Compile Include="LazyLoad\LazyInitialisation\Order.cs" />
     <Compile Include="LazyLoad\Proxy\Order.cs" />
+    <Compile Include="Mediator\Airbus577.cs" />
+    <Compile Include="Mediator\Aircraft.cs" />
+    <Compile Include="Mediator\AircraftController.cs" />
+    <Compile Include="Mediator\Boeing747.cs" />
+    <Compile Include="Mediator\IAircraft.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +155,7 @@
     <Content Include="Interpreter\ReadMe.txt" />
     <Content Include="Iterator\ReadMe.txt" />
     <Content Include="LazyLoad\ReadMe.txt" />
+    <Content Include="Mediator\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

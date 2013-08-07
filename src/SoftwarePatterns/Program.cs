@@ -16,6 +16,7 @@ using SoftwarePatterns.Core.EventAggregator;
 using SoftwarePatterns.Core.Facade;
 using SoftwarePatterns.Core.Factory;
 using SoftwarePatterns.Core.Interpreter;
+using SoftwarePatterns.Core.Mediator;
 
 namespace SoftwarePatterns
 {
@@ -103,6 +104,36 @@ namespace SoftwarePatterns
 
 		#endregion
 
+		#region Chain of responsability
+
+		//public static void Main()
+		//{
+		//	var edd = new ExpenseHandler(new ExpenseApprover("Edd", 0));
+		//	var jill = new ExpenseHandler(new ExpenseApprover("Jill", 100));
+		//	var barry = new ExpenseHandler(new ExpenseApprover("Barry", 1000));
+		//	var donald = new ExpenseHandler(new ExpenseApprover("Donald", 10000));
+
+		//	edd.RegisterNext(jill);
+		//	jill.RegisterNext(barry);
+		//	barry.RegisterNext(donald);
+
+		//	var input = Console.ReadLine();
+
+		//	Decimal expenseReportAmount;
+		//	if (decimal.TryParse(input, out expenseReportAmount))
+		//	{
+		//		var expenseReport = new ExpenseReport(expenseReportAmount);
+
+		//		var response = edd.Approve(expenseReport);
+
+		//		Console.WriteLine("This request was {0}.", response);
+		//	}
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
 		#region Command
 
 		//public static void Main(string[] args)
@@ -174,6 +205,44 @@ namespace SoftwarePatterns
 
 		#endregion
 
+		#region Enumeration Class
+
+		//static void Main()
+		//{
+		//	//to stop this sort of code
+		//	//public void ProcessBonus(Employee employee)
+		//	//{
+		//	//	switch (employee.Type)
+		//	//	{
+		//	//		case EmployeeType.Manager:
+		//	//			employee.Bonus = 1000m;
+		//	//			break;
+		//	//		case EmployeeType.Servant:
+		//	//			employee.Bonus = 0.01m;
+		//	//			break;
+		//	//		case EmployeeType.AssistantToTheRegionalManager:
+		//	//			employee.Bonus = 1.0m;
+		//	//			break;
+		//	//		default:
+		//	//			throw new ArgumentOutOfRangeException();
+		//	//	}
+		//	//}
+
+		//	var employee = new Employee {Type = EmployeeType.Manager};
+
+		//	ProcessBonus(employee);
+
+		//	Console.WriteLine(employee.Bonus);
+		//	Console.ReadLine();
+		//}
+
+		//public static void ProcessBonus(Employee employee)
+		//{
+		//	employee.Bonus = employee.Type.BonusSize;
+		//}
+
+		#endregion
+
 		#region EventAggregator
 
 		//public static void Main()
@@ -235,94 +304,42 @@ namespace SoftwarePatterns
 
 		#region Interpretor
 
-		public static void Main()
-		{
-			var patient = new Patient(new PersonalDetial {Name = "Steve", DateOFfBirth = DateTime.Now.AddYears(-55), PostCode = "NE4 2KI"},
-				new IntensiveCarePatient(),
-				new MedicalHistory(new List<IMedicalEvent>
-				{
-					new HeartAttack(),
-					new Stroke()
-				}),
-				new Diagnosis {Descrtion = "Too many tabs"},
-				new Medication(new List<Medicine>
-				{
-					new Medicine("Aspirin"),
-					new Medicine("Warm Tea")
-				}));
-
-			patient.Interpret(new Context());
-			
-			Console.ReadLine();
-		}
-
-		#endregion
-
-		#region Chain of responsability
-
 		//public static void Main()
 		//{
-		//	var edd = new ExpenseHandler(new ExpenseApprover("Edd", 0));
-		//	var jill = new ExpenseHandler(new ExpenseApprover("Jill", 100));
-		//	var barry = new ExpenseHandler(new ExpenseApprover("Barry", 1000));
-		//	var donald = new ExpenseHandler(new ExpenseApprover("Donald", 10000));
+		//	var patient = new Patient(new PersonalDetial {Name = "Steve", DateOFfBirth = DateTime.Now.AddYears(-55), PostCode = "NE4 2KI"},
+		//		new IntensiveCarePatient(),
+		//		new MedicalHistory(new List<IMedicalEvent>
+		//		{
+		//			new HeartAttack(),
+		//			new Stroke()
+		//		}),
+		//		new Diagnosis {Descrtion = "Too many tabs"},
+		//		new Medication(new List<Medicine>
+		//		{
+		//			new Medicine("Aspirin"),
+		//			new Medicine("Warm Tea")
+		//		}));
 
-		//	edd.RegisterNext(jill);
-		//	jill.RegisterNext(barry);
-		//	barry.RegisterNext(donald);
-
-		//	var input = Console.ReadLine();
-
-		//	Decimal expenseReportAmount;
-		//	if (decimal.TryParse(input, out expenseReportAmount))
-		//	{
-		//		var expenseReport = new ExpenseReport(expenseReportAmount);
-
-		//		var response = edd.Approve(expenseReport);
-
-		//		Console.WriteLine("This request was {0}.", response);
-		//	}
-
+		//	patient.Interpret(new Context());
+			
 		//	Console.ReadLine();
 		//}
 
 		#endregion
 
-		#region Enumeration Class
+		#region Mediator Pattern
 
-		//static void Main()
-		//{
-		//	//to stop this sort of code
-		//	//public void ProcessBonus(Employee employee)
-		//	//{
-		//	//	switch (employee.Type)
-		//	//	{
-		//	//		case EmployeeType.Manager:
-		//	//			employee.Bonus = 1000m;
-		//	//			break;
-		//	//		case EmployeeType.Servant:
-		//	//			employee.Bonus = 0.01m;
-		//	//			break;
-		//	//		case EmployeeType.AssistantToTheRegionalManager:
-		//	//			employee.Bonus = 1.0m;
-		//	//			break;
-		//	//		default:
-		//	//			throw new ArgumentOutOfRangeException();
-		//	//	}
-		//	//}
+		public static void Main()
+		{
+			var controller = new AircraftController();
 
-		//	var employee = new Employee {Type = EmployeeType.Manager};
+			var aircraft = new Boeing747("1234", 10000, controller);
+			var aircraft1 = new Airbus577("4567", 8000, controller);
 
-		//	ProcessBonus(employee);
+			aircraft.Altitude += 1000;
 
-		//	Console.WriteLine(employee.Bonus);
-		//	Console.ReadLine();
-		//}
-
-		//public static void ProcessBonus(Employee employee)
-		//{
-		//	employee.Bonus = employee.Type.BonusSize;
-		//}
+			Console.ReadLine();
+		}
 
 		#endregion
 	}
