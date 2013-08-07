@@ -79,6 +79,7 @@
     <Compile Include="Factory\AutoFactoyTests.cs" />
     <Compile Include="Flyweight\TileFactoryTests.cs" />
     <Compile Include="Iterator\BinaryTreeTests.cs" />
+    <Compile Include="LazyLoad\OrderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

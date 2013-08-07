@@ -129,6 +129,9 @@
     <Compile Include="Iterator\BinarySearchTree.cs" />
     <Compile Include="Iterator\BinaryTreeEnumerator.cs" />
     <Compile Include="Iterator\BinaryTreeNode.cs" />
+    <Compile Include="LazyLoad\Customer.cs" />
+    <Compile Include="LazyLoad\LazyInitialisation\Order.cs" />
+    <Compile Include="LazyLoad\Proxy\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,7 @@
     <Content Include="Flyweight\ReadMe.txt" />
     <Content Include="Interpreter\ReadMe.txt" />
     <Content Include="Iterator\ReadMe.txt" />
+    <Content Include="LazyLoad\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
