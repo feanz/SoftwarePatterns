@@ -137,6 +137,7 @@
     <Compile Include="Mediator\AircraftController.cs" />
     <Compile Include="Mediator\Boeing747.cs" />
     <Compile Include="Mediator\IAircraft.cs" />
+    <Compile Include="Momento\IMemento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,8 @@
     <Content Include="Iterator\ReadMe.txt" />
     <Content Include="LazyLoad\ReadMe.txt" />
     <Content Include="Mediator\ReadMe.txt" />
+    <Content Include="Momento\ReadMe.txt" />
+    <Content Include="PatternList.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

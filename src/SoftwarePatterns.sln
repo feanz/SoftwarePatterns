@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwarePatterns.Core", "So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwarePatterns.Forms", "SoftwarePatterns.Forms\SoftwarePatterns.Forms.csproj", "{527FE5CD-3C0E-445A-8F17-2040D7B9A6B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwarePatterns.WPF", "SoftwarePatterns.WPF\SoftwarePatterns.WPF.csproj", "{7B0ADBB4-3457-4EC5-B9BB-130E7135C29D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{527FE5CD-3C0E-445A-8F17-2040D7B9A6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{527FE5CD-3C0E-445A-8F17-2040D7B9A6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{527FE5CD-3C0E-445A-8F17-2040D7B9A6B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B0ADBB4-3457-4EC5-B9BB-130E7135C29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B0ADBB4-3457-4EC5-B9BB-130E7135C29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B0ADBB4-3457-4EC5-B9BB-130E7135C29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B0ADBB4-3457-4EC5-B9BB-130E7135C29D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
