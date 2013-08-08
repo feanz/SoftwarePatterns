@@ -18,6 +18,10 @@ using SoftwarePatterns.Core.Factory;
 using SoftwarePatterns.Core.Interpreter;
 using SoftwarePatterns.Core.Mediator;
 using SoftwarePatterns.Core.NullObject;
+using SoftwarePatterns.Core.Observer;
+using SoftwarePatterns.Core.Observer.EventDelegate;
+using SoftwarePatterns.Core.Observer.IObserver;
+using SoftwarePatterns.Core.Observer.PubSub;
 
 namespace SoftwarePatterns
 {
@@ -322,7 +326,7 @@ namespace SoftwarePatterns
 		//		}));
 
 		//	patient.Interpret(new Context());
-			
+
 		//	Console.ReadLine();
 		//}
 
@@ -344,24 +348,63 @@ namespace SoftwarePatterns
 
 		#endregion
 
-		#region NullObject
+		#region Observer
 
 		public static void Main()
 		{
-			var repo = new AutomobileRepository();
+			//Simple classic pub sub model
+			//var ticker = new SimpleStockTicker();
 
-			//get null object
-			var car = repo.GetAutoByName("Made up car");
+			//var google = new GoogleStockObserver(ticker);
+			//var msft = new MicrosftStockObserver(ticker);
 
-			//method can be called without throwing exceptions
-			car.TurnOn();
-			car.TurnOff();
+			//ticker.RunTicker();
 
-			if (car == AutomobileBase.Null)
-				Console.WriteLine("A NUll Carr");
+			//Event and delegate based approach
+
+			//var ticker = new EventStockTicker();
+
+			//var google = new GoogleEventStockObserver(ticker);
+			//var msft = new MicrosoftEventStockObserver(ticker);
+
+			//ticker.RunTicker();
+
+			//using IObserver<T> 
+
+			var ticker = new ObservableStockTicker();
+
+			var google = new GoogleObserver();
+			var msft = new MicrosoftObserver();
+
+			using (ticker.Subscribe(google))
+			using (ticker.Subscribe(msft))
+			{
+				ticker.RunTicker();
+			}
 
 			Console.ReadLine();
 		}
+
+		#endregion
+
+		#region NullObject
+
+		//public static void Main()
+		//{
+		//	var repo = new AutomobileRepository();
+
+		//	//get null object
+		//	var car = repo.GetAutoByName("Made up car");
+
+		//	//method can be called without throwing exceptions
+		//	car.TurnOn();
+		//	car.TurnOff();
+
+		//	if (car == AutomobileBase.Null)
+		//		Console.WriteLine("A NUll Carr");
+
+		//	Console.ReadLine();
+		//}
 
 		#endregion
 	}

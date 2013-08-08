@@ -139,6 +139,20 @@
     <Compile Include="Mediator\IAircraft.cs" />
     <Compile Include="Momento\IMemento.cs" />
     <Compile Include="NullObject\AutomobileBase.cs" />
+    <Compile Include="Observer\EventDelegate\EventStockTicker.cs" />
+    <Compile Include="Observer\EventDelegate\GoogleEventStockObserver.cs" />
+    <Compile Include="Observer\EventDelegate\MicrosoftEventStockObserver.cs" />
+    <Compile Include="Observer\EventDelegate\StockChangeEventArgs.cs" />
+    <Compile Include="Observer\IObserver\GoogleObserver.cs" />
+    <Compile Include="Observer\IObserver\MicrosoftObserver.cs" />
+    <Compile Include="Observer\IObserver\ObservableStockTicker.cs" />
+    <Compile Include="Observer\IObserver\Stock.cs" />
+    <Compile Include="Observer\IObserver\Unsubscriber.cs" />
+    <Compile Include="Observer\PubSub\AbstractObservers.cs" />
+    <Compile Include="Observer\PubSub\AbstractSubject.cs" />
+    <Compile Include="Observer\PubSub\GoogleStockObserver.cs" />
+    <Compile Include="Observer\PubSub\MicrosftStockObserver.cs" />
+    <Compile Include="Observer\PubSub\SimpleStockTicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +174,7 @@
     <Content Include="Mediator\ReadMe.txt" />
     <Content Include="Momento\ReadMe.txt" />
     <Content Include="NullObject\ReadMe.txt" />
+    <Content Include="Observer\ReadMe.txt" />
     <Content Include="PatternList.txt" />
   </ItemGroup>
   <ItemGroup />
