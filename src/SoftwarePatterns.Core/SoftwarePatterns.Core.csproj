@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
@@ -159,6 +164,14 @@
     <Compile Include="Proxy\OrderCacheRepository.cs" />
     <Compile Include="Proxy\OrderRepository.cs" />
     <Compile Include="Proxy\Repository.cs" />
+    <Compile Include="Repository\CachedRepository.cs" />
+    <Compile Include="Repository\DbInitialiser.cs" />
+    <Compile Include="Repository\EfRepository.cs" />
+    <Compile Include="Repository\ExampleDbContext.cs" />
+    <Compile Include="Repository\ICacheStorage.cs" />
+    <Compile Include="Repository\IProjectRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\Project.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adapter\ReadMe.txt" />
@@ -182,8 +195,12 @@
     <Content Include="Observer\ReadMe.txt" />
     <Content Include="PatternList.txt" />
     <Content Include="Proxy\ReadMe.txt" />
+    <Content Include="Repository\ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

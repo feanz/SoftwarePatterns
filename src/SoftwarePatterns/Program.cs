@@ -23,6 +23,7 @@ using SoftwarePatterns.Core.Observer.EventDelegate;
 using SoftwarePatterns.Core.Observer.IObserver;
 using SoftwarePatterns.Core.Observer.PubSub;
 using SoftwarePatterns.Core.Proxy;
+using SoftwarePatterns.Core.Repository;
 
 namespace SoftwarePatterns
 {
@@ -390,12 +391,40 @@ namespace SoftwarePatterns
 
 		#region Proxy
 
+		//public static void Main()
+		//{
+		//	var order1 = new OrderCacheRepository().GetById(1);
+		//	var order2 = new OrderCacheRepository().GetById(1);
+		//	var order3 = new OrderCacheRepository().GetById(1);
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region Reposiory
+
 		public static void Main()
 		{
-			var order1 = new OrderCacheRepository().GetById(1);
-			var order2 = new OrderCacheRepository().GetById(1);
-			var order3 = new OrderCacheRepository().GetById(1);
+			//would use Ioc container to define what repository is returned
+			var db = new ExampleDbContext();
+			var repo = new EfRepository<Project>(db);
 
+			var project = repo.GetById(1);
+			
+			var newProject = new Project { Name = "My Special Project"};
+			repo.Add(newProject);
+
+			Console.WriteLine("Project Name: {0}", project.Name);
+
+			project.Name = "Something else";
+			db.SaveChanges();
+
+			var getBack = repo.GetById(newProject.Id);
+
+			Console.WriteLine("Project Name: {0}", project.Name);
+
+			Console.WriteLine("New Project Name: {0}", getBack.Name);
 			Console.ReadLine();
 		}
 
