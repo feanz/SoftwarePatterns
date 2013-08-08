@@ -17,6 +17,7 @@ using SoftwarePatterns.Core.Facade;
 using SoftwarePatterns.Core.Factory;
 using SoftwarePatterns.Core.Interpreter;
 using SoftwarePatterns.Core.Mediator;
+using SoftwarePatterns.Core.NullObject;
 
 namespace SoftwarePatterns
 {
@@ -329,14 +330,35 @@ namespace SoftwarePatterns
 
 		#region Mediator Pattern
 
+		//public static void Main()
+		//{
+		//	var controller = new AircraftController();
+
+		//	var aircraft = new Boeing747("1234", 10000, controller);
+		//	var aircraft1 = new Airbus577("4567", 8000, controller);
+
+		//	aircraft.Altitude += 1000;
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region NullObject
+
 		public static void Main()
 		{
-			var controller = new AircraftController();
+			var repo = new AutomobileRepository();
 
-			var aircraft = new Boeing747("1234", 10000, controller);
-			var aircraft1 = new Airbus577("4567", 8000, controller);
+			//get null object
+			var car = repo.GetAutoByName("Made up car");
 
-			aircraft.Altitude += 1000;
+			//method can be called without throwing exceptions
+			car.TurnOn();
+			car.TurnOff();
+
+			if (car == AutomobileBase.Null)
+				Console.WriteLine("A NUll Carr");
 
 			Console.ReadLine();
 		}

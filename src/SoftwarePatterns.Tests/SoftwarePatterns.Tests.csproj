@@ -81,6 +81,7 @@
     <Compile Include="Iterator\BinaryTreeTests.cs" />
     <Compile Include="LazyLoad\OrderTests.cs" />
     <Compile Include="Mediator\AircraftControllerTests.cs" />
+    <Compile Include="NullObject\AutoRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

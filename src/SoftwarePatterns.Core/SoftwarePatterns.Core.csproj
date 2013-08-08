@@ -138,6 +138,7 @@
     <Compile Include="Mediator\Boeing747.cs" />
     <Compile Include="Mediator\IAircraft.cs" />
     <Compile Include="Momento\IMemento.cs" />
+    <Compile Include="NullObject\AutomobileBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,7 @@
     <Content Include="LazyLoad\ReadMe.txt" />
     <Content Include="Mediator\ReadMe.txt" />
     <Content Include="Momento\ReadMe.txt" />
+    <Content Include="NullObject\ReadMe.txt" />
     <Content Include="PatternList.txt" />
   </ItemGroup>
   <ItemGroup />
