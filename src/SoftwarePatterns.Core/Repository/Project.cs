@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using SoftwarePatterns.Core.UnitOfWork;
 
 namespace SoftwarePatterns.Core.Repository
 {
@@ -8,6 +11,7 @@ namespace SoftwarePatterns.Core.Repository
 		public Project()
 		{
 			StartDate = DateTime.UtcNow;
+			WorkItems = new Collection<WorkItem>();
 		}
 
 		public int Id { get; set; }
@@ -20,5 +24,7 @@ namespace SoftwarePatterns.Core.Repository
 		public DateTime StartDate { get; set; }
 
 		public bool IsDevProject { get; set; }
+
+		public ICollection<WorkItem> WorkItems { get; set; }
 	}
 }

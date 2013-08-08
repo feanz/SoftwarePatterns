@@ -24,6 +24,7 @@ using SoftwarePatterns.Core.Observer.IObserver;
 using SoftwarePatterns.Core.Observer.PubSub;
 using SoftwarePatterns.Core.Proxy;
 using SoftwarePatterns.Core.Repository;
+using SoftwarePatterns.Core.UnitOfWork;
 
 namespace SoftwarePatterns
 {
@@ -404,29 +405,29 @@ namespace SoftwarePatterns
 
 		#region Reposiory
 
-		public static void Main()
-		{
-			//would use Ioc container to define what repository is returned
-			var db = new ExampleDbContext();
-			var repo = new EfRepository<Project>(db);
+		//public static void Main()
+		//{
+		//	//would use Ioc container to define what repository is returned
+		//	var db = new ExampleDbContext();
+		//	var repo = new EfRepository<Project>(db);
 
-			var project = repo.GetById(1);
+		//	var project = repo.GetById(1);
 			
-			var newProject = new Project { Name = "My Special Project"};
-			repo.Add(newProject);
+		//	var newProject = new Project { Name = "My Special Project"};
+		//	repo.Add(newProject);
 
-			Console.WriteLine("Project Name: {0}", project.Name);
+		//	Console.WriteLine("Project Name: {0}", project.Name);
 
-			project.Name = "Something else";
-			db.SaveChanges();
+		//	project.Name = "Something else";
+		//	db.SaveChanges();
 
-			var getBack = repo.GetById(newProject.Id);
+		//	var getBack = repo.GetById(newProject.Id);
 
-			Console.WriteLine("Project Name: {0}", project.Name);
+		//	Console.WriteLine("Project Name: {0}", project.Name);
 
-			Console.WriteLine("New Project Name: {0}", getBack.Name);
-			Console.ReadLine();
-		}
+		//	Console.WriteLine("New Project Name: {0}", getBack.Name);
+		//	Console.ReadLine();
+		//}
 
 		#endregion
 
@@ -448,6 +449,36 @@ namespace SoftwarePatterns
 
 		//	Console.ReadLine();
 		//}
+
+		#endregion
+
+		#region UnitOfWork
+
+		public static void Main()
+		{
+			//would use Ioc container to define the repository factories as singleton and what RepositoryProvider to return for what IRepositoryProvider we use this approch so 
+			//unit of work does not have to take all the repos as constructor params
+			using (IUnitOfWork uoW = new UnitOfWork(new RepositoryProvider(new RepositoryFactories())))
+			{
+				//here we create a new project add a work item using a different repository and commit using our unit of work
+
+				var newProject = new Project {Name = "My Special Project"};
+				uoW.Projects.Add(newProject);
+				var newWorkItem = new WorkItem {Name = "Test Work Item "};
+
+				newProject.WorkItems.Add(newWorkItem);
+
+				uoW.Commit();
+
+				var getBack = uoW.Projects.GetById(newProject.Id);
+
+				Console.WriteLine("New Project Name: {0}", getBack.Name);
+
+				Console.WriteLine("New WorkItem Name: {0}", getBack.WorkItems.First().Name);
+
+				Console.ReadLine();
+			}
+		}
 
 		#endregion
 	}
