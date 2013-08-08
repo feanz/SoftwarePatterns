@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -154,6 +155,10 @@
     <Compile Include="Observer\PubSub\MicrosftStockObserver.cs" />
     <Compile Include="Observer\PubSub\SimpleStockTicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\Order.cs" />
+    <Compile Include="Proxy\OrderCacheRepository.cs" />
+    <Compile Include="Proxy\OrderRepository.cs" />
+    <Compile Include="Proxy\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adapter\ReadMe.txt" />
@@ -176,6 +181,7 @@
     <Content Include="NullObject\ReadMe.txt" />
     <Content Include="Observer\ReadMe.txt" />
     <Content Include="PatternList.txt" />
+    <Content Include="Proxy\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

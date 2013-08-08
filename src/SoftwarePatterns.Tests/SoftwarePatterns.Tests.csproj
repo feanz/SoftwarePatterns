@@ -84,6 +84,7 @@
     <Compile Include="NullObject\AutoRepositoryTests.cs" />
     <Compile Include="Observer\ObserverTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\OrderRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

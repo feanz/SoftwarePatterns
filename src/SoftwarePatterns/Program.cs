@@ -22,6 +22,7 @@ using SoftwarePatterns.Core.Observer;
 using SoftwarePatterns.Core.Observer.EventDelegate;
 using SoftwarePatterns.Core.Observer.IObserver;
 using SoftwarePatterns.Core.Observer.PubSub;
+using SoftwarePatterns.Core.Proxy;
 
 namespace SoftwarePatterns
 {
@@ -350,37 +351,50 @@ namespace SoftwarePatterns
 
 		#region Observer
 
+		//public static void Main()
+		//{
+		//	//Simple classic pub sub model
+		//	//var ticker = new SimpleStockTicker();
+
+		//	//var google = new GoogleStockObserver(ticker);
+		//	//var msft = new MicrosftStockObserver(ticker);
+
+		//	//ticker.RunTicker();
+
+		//	//Event and delegate based approach
+
+		//	//var ticker = new EventStockTicker();
+
+		//	//var google = new GoogleEventStockObserver(ticker);
+		//	//var msft = new MicrosoftEventStockObserver(ticker);
+
+		//	//ticker.RunTicker();
+
+		//	//using IObserver<T> 
+
+		//	var ticker = new ObservableStockTicker();
+
+		//	var google = new GoogleObserver();
+		//	var msft = new MicrosoftObserver();
+
+		//	using (ticker.Subscribe(google))
+		//	using (ticker.Subscribe(msft))
+		//	{
+		//		ticker.RunTicker();
+		//	}
+
+		//	Console.ReadLine();
+		//}
+
+		#endregion
+
+		#region Proxy
+
 		public static void Main()
 		{
-			//Simple classic pub sub model
-			//var ticker = new SimpleStockTicker();
-
-			//var google = new GoogleStockObserver(ticker);
-			//var msft = new MicrosftStockObserver(ticker);
-
-			//ticker.RunTicker();
-
-			//Event and delegate based approach
-
-			//var ticker = new EventStockTicker();
-
-			//var google = new GoogleEventStockObserver(ticker);
-			//var msft = new MicrosoftEventStockObserver(ticker);
-
-			//ticker.RunTicker();
-
-			//using IObserver<T> 
-
-			var ticker = new ObservableStockTicker();
-
-			var google = new GoogleObserver();
-			var msft = new MicrosoftObserver();
-
-			using (ticker.Subscribe(google))
-			using (ticker.Subscribe(msft))
-			{
-				ticker.RunTicker();
-			}
+			var order1 = new OrderCacheRepository().GetById(1);
+			var order2 = new OrderCacheRepository().GetById(1);
+			var order3 = new OrderCacheRepository().GetById(1);
 
 			Console.ReadLine();
 		}
