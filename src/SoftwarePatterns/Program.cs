@@ -32,6 +32,7 @@ using SoftwarePatterns.Core.ServiceLocator;
 using SoftwarePatterns.Core.Singleton;
 using SoftwarePatterns.Core.State;
 using SoftwarePatterns.Core.Strategy;
+using SoftwarePatterns.Core.TemplateMethod;
 using SoftwarePatterns.Core.UnitOfWork;
 using WorkItem = SoftwarePatterns.Core.State.WorkItem;
 
@@ -485,22 +486,22 @@ namespace SoftwarePatterns
 
 		#region Strategy
 
-		public static void Main()
-		{
-			var order = new ShippingOrder
-			{
-				Name = "Test",
-				Shipping = "UPS"
-			};
+		//public static void Main()
+		//{
+		//	var order = new ShippingOrder
+		//	{
+		//		Name = "Test",
+		//		Shipping = "UPS"
+		//	};
 
-			//use some sort of factory to determine what strategy to execute
-			var shippingCostService = new ShippingCostCalculatorService(new UPSCostCalculatorStrategy());
+		//	//use some sort of factory to determine what strategy to execute
+		//	var shippingCostService = new ShippingCostCalculatorService(new UPSCostCalculatorStrategy());
 
-			shippingCostService.CalculateShippingCost(order);
+		//	shippingCostService.CalculateShippingCost(order);
 
-			Console.WriteLine("Order shipping cost: {0}", order);
-			Console.ReadLine();
-		}
+		//	Console.WriteLine("Order shipping cost: {0}", order);
+		//	Console.ReadLine();
+		//}
 
 		#endregion
 
@@ -551,6 +552,22 @@ namespace SoftwarePatterns
 
 		//	Console.ReadLine();
 		//}
+
+		#endregion
+
+		#region Template Method
+
+		public static void Main()
+		{
+			var order = new ShipOrder{ ID = 1, Name = "Order One" };
+			var upsShipper = new UPSShipper(order);
+			var fedexShipper = new FedexShipper(order);
+
+			upsShipper.Ship();
+			fedexShipper.Ship();
+
+			Console.ReadLine();
+		}
 
 		#endregion
 
