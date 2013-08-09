@@ -22,6 +22,7 @@ using SoftwarePatterns.Core.NullObject;
 using SoftwarePatterns.Core.Observer.IObserver;
 using SoftwarePatterns.Core.Proxy;
 using SoftwarePatterns.Core.Repository;
+using SoftwarePatterns.Core.Rules;
 using SoftwarePatterns.Core.ServiceLocator;
 using SoftwarePatterns.Core.Singleton;
 using SoftwarePatterns.Core.State;
@@ -37,7 +38,7 @@ namespace SoftwarePatterns
 	{
 		public static void Main()
 		{
-			Visitor();
+			Rule();
 		}
 
 		#region Adapter
@@ -437,6 +438,26 @@ namespace SoftwarePatterns
 			Console.WriteLine("Project Name: {0}", project.Name);
 
 			Console.WriteLine("New Project Name: {0}", getBack.Name);
+			Console.ReadLine();
+		}
+
+		#endregion
+
+		#region Rule
+
+		public static void Rule()
+		{
+			var customer = new DiscountCustomer
+			{
+				DateOfBirth = DateTime.Now.AddYears(-32).AddDays(1),
+				IsVeteran = true
+			};
+
+			var customerDiscount = new DiscountCalculator();
+
+			var discount = customerDiscount.CalculateDiscountPercentage(customer);
+
+			Console.WriteLine("Customer discount {0}", discount);
 			Console.ReadLine();
 		}
 
