@@ -26,6 +26,7 @@ using SoftwarePatterns.Core.Observer.IObserver;
 using SoftwarePatterns.Core.Observer.PubSub;
 using SoftwarePatterns.Core.Proxy;
 using SoftwarePatterns.Core.Repository;
+using SoftwarePatterns.Core.ServiceLocator;
 using SoftwarePatterns.Core.Singleton;
 using SoftwarePatterns.Core.UnitOfWork;
 
@@ -434,32 +435,53 @@ namespace SoftwarePatterns
 
 		#endregion
 
-		#region Singleton
+		#region Service Locator
 
 		public static void Main()
 		{
-			//demo thread safe access to singleton object
-			var tasks = new List<Task>();
+			//register with service locator
+			Locator.Register<IPackageProcessor>(() => new PackageProcessor());
+			Locator.Register<IPackageShipper>(() => new PackageShipper());
 
-			tasks.Add(Task.Factory.StartNew(() =>
-			{
-				var singleTon = Singleton.Instance;
+			var package = new Package {ID = 1, Name = "Test Package"};
 
-				Console.WriteLine("Task 1 Singleton value {0}, on Thread:{1}",singleTon.GlobalValue,Thread.CurrentThread.ManagedThreadId);
-			}));
+			var processor = Locator.Resolve<IPackageProcessor>();
+			var shipper = Locator.Resolve<IPackageShipper>();
 
-			tasks.Add(Task.Factory.StartNew(() =>
-			{
-				var singleTon = Singleton.Instance;
-
-				Console.WriteLine("Task 2 Singleton value {0}, on Thread:{1}", singleTon.GlobalValue, Thread.CurrentThread.ManagedThreadId);
-			}));
-
-			Task.WaitAll(tasks.ToArray());
-
+			processor.ProcessPackage(package);
+			shipper.ShipPackage(package);
 
 			Console.ReadLine();
 		}
+
+		#endregion
+
+		#region Singleton
+
+		//public static void Main()
+		//{
+		//	//demo thread safe access to singleton object
+		//	var tasks = new List<Task>();
+
+		//	tasks.Add(Task.Factory.StartNew(() =>
+		//	{
+		//		var singleTon = Singleton.Instance;
+
+		//		Console.WriteLine("Task 1 Singleton value {0}, on Thread:{1}",singleTon.GlobalValue,Thread.CurrentThread.ManagedThreadId);
+		//	}));
+
+		//	tasks.Add(Task.Factory.StartNew(() =>
+		//	{
+		//		var singleTon = Singleton.Instance;
+
+		//		Console.WriteLine("Task 2 Singleton value {0}, on Thread:{1}", singleTon.GlobalValue, Thread.CurrentThread.ManagedThreadId);
+		//	}));
+
+		//	Task.WaitAll(tasks.ToArray());
+
+
+		//	Console.ReadLine();
+		//}
 
 		#endregion
 
