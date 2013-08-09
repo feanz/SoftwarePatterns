@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Threading;
+using System.Threading.Tasks;
 using Ploeh.AutoFixture;
 using SoftwarePatterns.Core;
 using SoftwarePatterns.Core.Adapter;
@@ -24,6 +26,7 @@ using SoftwarePatterns.Core.Observer.IObserver;
 using SoftwarePatterns.Core.Observer.PubSub;
 using SoftwarePatterns.Core.Proxy;
 using SoftwarePatterns.Core.Repository;
+using SoftwarePatterns.Core.Singleton;
 using SoftwarePatterns.Core.UnitOfWork;
 
 namespace SoftwarePatterns
@@ -412,7 +415,7 @@ namespace SoftwarePatterns
 		//	var repo = new EfRepository<Project>(db);
 
 		//	var project = repo.GetById(1);
-			
+
 		//	var newProject = new Project { Name = "My Special Project"};
 		//	repo.Add(newProject);
 
@@ -428,6 +431,35 @@ namespace SoftwarePatterns
 		//	Console.WriteLine("New Project Name: {0}", getBack.Name);
 		//	Console.ReadLine();
 		//}
+
+		#endregion
+
+		#region Singleton
+
+		public static void Main()
+		{
+			//demo thread safe access to singleton object
+			var tasks = new List<Task>();
+
+			tasks.Add(Task.Factory.StartNew(() =>
+			{
+				var singleTon = Singleton.Instance;
+
+				Console.WriteLine("Task 1 Singleton value {0}, on Thread:{1}",singleTon.GlobalValue,Thread.CurrentThread.ManagedThreadId);
+			}));
+
+			tasks.Add(Task.Factory.StartNew(() =>
+			{
+				var singleTon = Singleton.Instance;
+
+				Console.WriteLine("Task 2 Singleton value {0}, on Thread:{1}", singleTon.GlobalValue, Thread.CurrentThread.ManagedThreadId);
+			}));
+
+			Task.WaitAll(tasks.ToArray());
+
+
+			Console.ReadLine();
+		}
 
 		#endregion
 
@@ -454,31 +486,31 @@ namespace SoftwarePatterns
 
 		#region UnitOfWork
 
-		public static void Main()
-		{
-			//would use Ioc container to define the repository factories as singleton and what RepositoryProvider to return for what IRepositoryProvider we use this approch so 
-			//unit of work does not have to take all the repos as constructor params
-			using (IUnitOfWork uoW = new UnitOfWork(new RepositoryProvider(new RepositoryFactories())))
-			{
-				//here we create a new project add a work item using a different repository and commit using our unit of work
+		//public static void Main()
+		//{
+		//	//would use Ioc container to define the repository factories as singleton and what RepositoryProvider to return for what IRepositoryProvider we use this approch so 
+		//	//unit of work does not have to take all the repos as constructor params
+		//	using (IUnitOfWork uoW = new UnitOfWork(new RepositoryProvider(new RepositoryFactories())))
+		//	{
+		//		//here we create a new project add a work item using a different repository and commit using our unit of work
 
-				var newProject = new Project {Name = "My Special Project"};
-				uoW.Projects.Add(newProject);
-				var newWorkItem = new WorkItem {Name = "Test Work Item "};
+		//		var newProject = new Project {Name = "My Special Project"};
+		//		uoW.Projects.Add(newProject);
+		//		var newWorkItem = new WorkItem {Name = "Test Work Item "};
 
-				newProject.WorkItems.Add(newWorkItem);
+		//		newProject.WorkItems.Add(newWorkItem);
 
-				uoW.Commit();
+		//		uoW.Commit();
 
-				var getBack = uoW.Projects.GetById(newProject.Id);
+		//		var getBack = uoW.Projects.GetById(newProject.Id);
 
-				Console.WriteLine("New Project Name: {0}", getBack.Name);
+		//		Console.WriteLine("New Project Name: {0}", getBack.Name);
 
-				Console.WriteLine("New WorkItem Name: {0}", getBack.WorkItems.First().Name);
+		//		Console.WriteLine("New WorkItem Name: {0}", getBack.WorkItems.First().Name);
 
-				Console.ReadLine();
-			}
-		}
+		//		Console.ReadLine();
+		//	}
+		//}
 
 		#endregion
 	}

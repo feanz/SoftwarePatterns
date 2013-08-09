@@ -173,6 +173,7 @@
     <Compile Include="Repository\IProjectRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Project.cs" />
+    <Compile Include="Singleton\Singleton.cs" />
     <Compile Include="UnitOfWork\IRepositoryProvider.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\RepositoryFactories.cs" />
@@ -203,6 +204,7 @@
     <Content Include="PatternList.txt" />
     <Content Include="Proxy\ReadMe.txt" />
     <Content Include="Repository\ReadMe.txt" />
+    <Content Include="Singleton\ReadMe.txt" />
     <Content Include="UnitOfWork\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
