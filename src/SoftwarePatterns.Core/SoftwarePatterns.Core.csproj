@@ -203,6 +203,13 @@
     <Compile Include="UnitOfWork\RepositoryProvider.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
     <Compile Include="UnitOfWork\WorkItem.cs" />
+    <Compile Include="Visitor\BankAccount.cs" />
+    <Compile Include="Visitor\IAsset.cs" />
+    <Compile Include="Visitor\IAssetVisitor.cs" />
+    <Compile Include="Visitor\Loan.cs" />
+    <Compile Include="Visitor\NetWorthVisitor.cs" />
+    <Compile Include="Visitor\Person.cs" />
+    <Compile Include="Visitor\RealEstate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adapter\ReadMe.txt" />
@@ -233,6 +240,7 @@
     <Content Include="Strategy\ReadMe.txt" />
     <Content Include="TemplateMethod\ReadMe.txt" />
     <Content Include="UnitOfWork\ReadMe.txt" />
+    <Content Include="Visitor\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
