@@ -189,6 +189,11 @@
     <Compile Include="State\Status.cs" />
     <Compile Include="State\WorkItem.cs" />
     <Compile Include="State\WorkItemContainer.cs" />
+    <Compile Include="Strategy\IShippingCostStrategy.cs" />
+    <Compile Include="Strategy\PostCostCalculatorStrategy.cs" />
+    <Compile Include="Strategy\ShippingCostCalculatorService.cs" />
+    <Compile Include="Strategy\ShippingOrder.cs" />
+    <Compile Include="Strategy\UPSCostCalculatorStrategy.cs" />
     <Compile Include="UnitOfWork\IRepositoryProvider.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\RepositoryFactories.cs" />
@@ -222,6 +227,7 @@
     <Content Include="ServiceLocator\ReadMe.txt" />
     <Content Include="Singleton\ReadMe.txt" />
     <Content Include="State\ReadMe.txt" />
+    <Content Include="Strategy\ReadMe.txt" />
     <Content Include="UnitOfWork\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
