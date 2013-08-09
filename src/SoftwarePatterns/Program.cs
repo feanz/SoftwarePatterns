@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
@@ -28,7 +29,9 @@ using SoftwarePatterns.Core.Proxy;
 using SoftwarePatterns.Core.Repository;
 using SoftwarePatterns.Core.ServiceLocator;
 using SoftwarePatterns.Core.Singleton;
+using SoftwarePatterns.Core.State;
 using SoftwarePatterns.Core.UnitOfWork;
+using WorkItem = SoftwarePatterns.Core.State.WorkItem;
 
 namespace SoftwarePatterns
 {
@@ -435,24 +438,67 @@ namespace SoftwarePatterns
 
 		#endregion
 
-		#region Service Locator
+		#region State
 
-		public static void Main()
+		public static void Main(string[] args)
 		{
-			//register with service locator
-			Locator.Register<IPackageProcessor>(() => new PackageProcessor());
-			Locator.Register<IPackageShipper>(() => new PackageShipper());
+			#region Work ITems
+			var workItems = new List<Core.State.WorkItem>
+			{
+				new Core.State.WorkItem {Id = 1, Name = "Do some work", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse urna lectus, fringilla condimentum cursus eget, viverra sollicitudin diam. Ut purus ante, eleifend at tortor non, laoreet aliquet nibh. Fusce pretium enim et gravida elementum. Nulla consequat rutrum euismod. Nunc et rhoncus risus. Aenean vulputate, lorem nec tincidunt euismod, quam enim condimentum nisl, ut ullamcorper lectus mauris vel erat. Aliquam feugiat, sem vel cursus semper, enim nunc lacinia metus, ut imperdiet nulla nunc eu ante.", State = Status.Active},
+				new Core.State.WorkItem {Id = 2, Name = "Possible Work", Description = "Proin vel eros eu felis venenatis tempor. Donec fringilla semper lacus vehicula tristique. In ac iaculis mi. Mauris eros neque, convallis vitae eleifend sed, consectetur at sapien. Integer nec cursus erat. Suspendisse sed tincidunt nunc. Nunc laoreet a mi sit amet interdum.", State = Status.Proposed},
+				new Core.State.WorkItem {Id = 3, Name = "Do some work", Description = "Nam et elit justo. Proin ac lacus ante. Ut dapibus velit id arcu dignissim adipiscing. Aliquam magna diam, viverra at lectus quis, dignissim blandit enim. Etiam a augue condimentum, molestie ligula nec, pellentesque metus. Nulla quis interdum odio, non placerat nunc.", State = Status.Resolved},
 
-			var package = new Package {ID = 1, Name = "Test Package"};
+			};
 
-			var processor = Locator.Resolve<IPackageProcessor>();
-			var shipper = Locator.Resolve<IPackageShipper>();
+			#endregion
 
-			processor.ProcessPackage(package);
-			shipper.ShipPackage(package);
+			WorkItem.Init(new WorkItemContainer(workItems));
+
+			var newWorkItem = WorkItem.Create();
+
+			var item1 = WorkItem.FindById(1);
+
+			item1.Print();
+
+			item1.Edit("Somthing else", "Short description");
+
+			item1.SetState(Status.Resolved);
+
+			newWorkItem.Edit("New Item name", "New description");
+
+			newWorkItem.SetState(Status.Resolved);
+
+			newWorkItem.SetState(Status.Active);
+			newWorkItem.SetState(Status.Resolved);
+			newWorkItem.Delete();
+			newWorkItem.SetState(Status.Closed);
+			newWorkItem.Print();
+			newWorkItem.Delete();
 
 			Console.ReadLine();
 		}
+
+		#endregion
+
+		#region Service Locator
+
+		//public static void Main()
+		//{
+		//	//register with service locator
+		//	Locator.Register<IPackageProcessor>(() => new PackageProcessor());
+		//	Locator.Register<IPackageShipper>(() => new PackageShipper());
+
+		//	var package = new Package {ID = 1, Name = "Test Package"};
+
+		//	var processor = Locator.Resolve<IPackageProcessor>();
+		//	var shipper = Locator.Resolve<IPackageShipper>();
+
+		//	processor.ProcessPackage(package);
+		//	shipper.ShipPackage(package);
+
+		//	Console.ReadLine();
+		//}
 
 		#endregion
 

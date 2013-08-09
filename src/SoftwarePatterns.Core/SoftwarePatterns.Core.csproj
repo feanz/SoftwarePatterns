@@ -180,6 +180,15 @@
     <Compile Include="ServiceLocator\Locator.cs" />
     <Compile Include="ServiceLocator\PackageProcessor.cs" />
     <Compile Include="Singleton\Singleton.cs" />
+    <Compile Include="State\ActiveState.cs" />
+    <Compile Include="State\BaseState.cs" />
+    <Compile Include="State\ClosedState.cs" />
+    <Compile Include="State\ICommands.cs" />
+    <Compile Include="State\ProposedState.cs" />
+    <Compile Include="State\ResolvedState.cs" />
+    <Compile Include="State\Status.cs" />
+    <Compile Include="State\WorkItem.cs" />
+    <Compile Include="State\WorkItemContainer.cs" />
     <Compile Include="UnitOfWork\IRepositoryProvider.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\RepositoryFactories.cs" />
@@ -212,6 +221,7 @@
     <Content Include="Repository\ReadMe.txt" />
     <Content Include="ServiceLocator\ReadMe.txt" />
     <Content Include="Singleton\ReadMe.txt" />
+    <Content Include="State\ReadMe.txt" />
     <Content Include="UnitOfWork\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
